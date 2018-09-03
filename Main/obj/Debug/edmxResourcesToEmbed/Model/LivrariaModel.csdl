@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="LivrariaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="LivrariaModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Editora" EntityType="LivrariaModel.Editora" />
+    <EntitySet Name="Livro" EntityType="LivrariaModel.Livro" />
+    <EntitySet Name="Item" EntityType="LivrariaModel.Item" />
+    <EntitySet Name="Pedido" EntityType="LivrariaModel.Pedido" />
+    <EntitySet Name="Cliente" EntityType="LivrariaModel.Cliente" />
+    <AssociationSet Name="EditoraLivro" Association="LivrariaModel.EditoraLivro">
+      <End Role="Editora" EntitySet="Editora" />
+      <End Role="Livro" EntitySet="Livro" />
+    </AssociationSet>
+    <AssociationSet Name="LivroItem" Association="LivrariaModel.LivroItem">
+      <End Role="Livro" EntitySet="Livro" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+    <AssociationSet Name="ItemPedido" Association="LivrariaModel.ItemPedido">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="PedidoCliente" Association="LivrariaModel.PedidoCliente">
+      <End Role="Pedido" EntitySet="Pedido" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Editora">
+    <Key>
+      <PropertyRef Name="IdEditora" />
+    </Key>
+    <Property Name="IdEditora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Livro" Relationship="LivrariaModel.EditoraLivro" FromRole="Editora" ToRole="Livro" />
+    <Property Name="NomeEditora" Type="String" Nullable="false" />
+    <Property Name="TelefoneEditora" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Livro">
+    <Key>
+      <PropertyRef Name="IdLivro" />
+    </Key>
+    <Property Name="IdLivro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Editora" Relationship="LivrariaModel.EditoraLivro" FromRole="Livro" ToRole="Editora" />
+    <Property Name="IdEditora" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Item" Relationship="LivrariaModel.LivroItem" FromRole="Livro" ToRole="Item" />
+    <Property Name="NomeLivro" Type="String" Nullable="false" />
+    <Property Name="Categoria" Type="String" Nullable="false" />
+    <Property Name="Preco" Type="Double" Nullable="false" />
+    <Property Name="Edicao" Type="String" Nullable="false" />
+    <Property Name="Autor" Type="String" Nullable="false" />
+    <Property Name="Estoque" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="IdItem" />
+    </Key>
+    <Property Name="IdItem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Livro" Relationship="LivrariaModel.LivroItem" FromRole="Item" ToRole="Livro" />
+    <Property Name="IdLivro" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Pedido" Relationship="LivrariaModel.ItemPedido" FromRole="Item" ToRole="Pedido" />
+    <Property Name="IdPedido" Type="Int32" Nullable="false" />
+    <Property Name="Quantidade" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="IdPedido" />
+    </Key>
+    <Property Name="IdPedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Item" Relationship="LivrariaModel.ItemPedido" FromRole="Pedido" ToRole="Item" />
+    <NavigationProperty Name="Cliente" Relationship="LivrariaModel.PedidoCliente" FromRole="Pedido" ToRole="Cliente" />
+    <Property Name="IdCliente" Type="Int32" Nullable="false" />
+    <Property Name="DataPedido" Type="DateTime" Nullable="false" />
+    <Property Name="ValorPedido" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Pedido" Relationship="LivrariaModel.PedidoCliente" FromRole="Cliente" ToRole="Pedido" />
+    <Property Name="NomeCliente" Type="String" Nullable="false" />
+    <Property Name="TelefoneCliente" Type="String" Nullable="false" />
+    <Property Name="CPF" Type="String" Nullable="false" />
+  </EntityType>
+  <Association Name="EditoraLivro">
+    <End Type="LivrariaModel.Editora" Role="Editora" Multiplicity="1" />
+    <End Type="LivrariaModel.Livro" Role="Livro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Editora">
+        <PropertyRef Name="IdEditora" />
+      </Principal>
+      <Dependent Role="Livro">
+        <PropertyRef Name="IdEditora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LivroItem">
+    <End Type="LivrariaModel.Livro" Role="Livro" Multiplicity="1" />
+    <End Type="LivrariaModel.Item" Role="Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Livro">
+        <PropertyRef Name="IdLivro" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="IdLivro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ItemPedido">
+    <End Type="LivrariaModel.Item" Role="Item" Multiplicity="*" />
+    <End Type="LivrariaModel.Pedido" Role="Pedido" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Pedido">
+        <PropertyRef Name="IdPedido" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="IdPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PedidoCliente">
+    <End Type="LivrariaModel.Pedido" Role="Pedido" Multiplicity="*" />
+    <End Type="LivrariaModel.Cliente" Role="Cliente" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

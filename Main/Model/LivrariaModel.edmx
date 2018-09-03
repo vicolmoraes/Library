@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LivrariaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="LivrariaModelStoreContainer">
+    <EntitySet Name="Editora" EntityType="LivrariaModel.Store.Editora" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Livro" EntityType="LivrariaModel.Store.Livro" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Item" EntityType="LivrariaModel.Store.Item" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pedido" EntityType="LivrariaModel.Store.Pedido" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cliente" EntityType="LivrariaModel.Store.Cliente" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="EditoraLivro" Association="LivrariaModel.Store.EditoraLivro">
+      <End Role="Editora" EntitySet="Editora" />
+      <End Role="Livro" EntitySet="Livro" />
+    </AssociationSet>
+    <AssociationSet Name="LivroItem" Association="LivrariaModel.Store.LivroItem">
+      <End Role="Livro" EntitySet="Livro" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+    <AssociationSet Name="ItemPedido" Association="LivrariaModel.Store.ItemPedido">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="PedidoCliente" Association="LivrariaModel.Store.PedidoCliente">
+      <End Role="Pedido" EntitySet="Pedido" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Editora">
+    <Key>
+      <PropertyRef Name="IdEditora" />
+    </Key>
+    <Property Name="IdEditora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomeEditora" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TelefoneEditora" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Livro">
+    <Key>
+      <PropertyRef Name="IdLivro" />
+    </Key>
+    <Property Name="IdLivro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdEditora" Type="int" Nullable="false" />
+    <Property Name="NomeLivro" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Categoria" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Preco" Type="float" Nullable="false" />
+    <Property Name="Edicao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Autor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Estoque" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="IdItem" />
+    </Key>
+    <Property Name="IdItem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdLivro" Type="int" Nullable="false" />
+    <Property Name="IdPedido" Type="int" Nullable="false" />
+    <Property Name="Quantidade" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="IdPedido" />
+    </Key>
+    <Property Name="IdPedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCliente" Type="int" Nullable="false" />
+    <Property Name="DataPedido" Type="datetime" Nullable="false" />
+    <Property Name="ValorPedido" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomeCliente" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TelefoneCliente" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CPF" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="EditoraLivro">
+    <End Role="Editora" Type="LivrariaModel.Store.Editora" Multiplicity="1" />
+    <End Role="Livro" Type="LivrariaModel.Store.Livro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Editora">
+        <PropertyRef Name="IdEditora" />
+      </Principal>
+      <Dependent Role="Livro">
+        <PropertyRef Name="IdEditora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LivroItem">
+    <End Role="Livro" Type="LivrariaModel.Store.Livro" Multiplicity="1" />
+    <End Role="Item" Type="LivrariaModel.Store.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Livro">
+        <PropertyRef Name="IdLivro" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="IdLivro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ItemPedido">
+    <End Role="Item" Type="LivrariaModel.Store.Item" Multiplicity="*" />
+    <End Role="Pedido" Type="LivrariaModel.Store.Pedido" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Pedido">
+        <PropertyRef Name="IdPedido" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="IdPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PedidoCliente">
+    <End Role="Pedido" Type="LivrariaModel.Store.Pedido" Multiplicity="*" />
+    <End Role="Cliente" Type="LivrariaModel.Store.Cliente" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="LivrariaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="LivrariaModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Editora" EntityType="LivrariaModel.Editora" />
+          <EntitySet Name="Livro" EntityType="LivrariaModel.Livro" />
+          <EntitySet Name="Item" EntityType="LivrariaModel.Item" />
+          <EntitySet Name="Pedido" EntityType="LivrariaModel.Pedido" />
+          <EntitySet Name="Cliente" EntityType="LivrariaModel.Cliente" />
+          <AssociationSet Name="EditoraLivro" Association="LivrariaModel.EditoraLivro">
+            <End Role="Editora" EntitySet="Editora" />
+            <End Role="Livro" EntitySet="Livro" />
+          </AssociationSet>
+          <AssociationSet Name="LivroItem" Association="LivrariaModel.LivroItem">
+            <End Role="Livro" EntitySet="Livro" />
+            <End Role="Item" EntitySet="Item" />
+          </AssociationSet>
+          <AssociationSet Name="ItemPedido" Association="LivrariaModel.ItemPedido">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Pedido" EntitySet="Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="PedidoCliente" Association="LivrariaModel.PedidoCliente">
+            <End Role="Pedido" EntitySet="Pedido" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Editora">
+          <Key>
+            <PropertyRef Name="IdEditora" />
+          </Key>
+          <Property Name="IdEditora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Livro" Relationship="LivrariaModel.EditoraLivro" FromRole="Editora" ToRole="Livro" />
+          <Property Name="NomeEditora" Type="String" Nullable="false" />
+          <Property Name="TelefoneEditora" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Livro">
+          <Key>
+            <PropertyRef Name="IdLivro" />
+          </Key>
+          <Property Name="IdLivro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Editora" Relationship="LivrariaModel.EditoraLivro" FromRole="Livro" ToRole="Editora" />
+          <Property Name="IdEditora" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="LivrariaModel.LivroItem" FromRole="Livro" ToRole="Item" />
+          <Property Name="NomeLivro" Type="String" Nullable="false" />
+          <Property Name="Categoria" Type="String" Nullable="false" />
+          <Property Name="Preco" Type="Double" Nullable="false" />
+          <Property Name="Edicao" Type="String" Nullable="false" />
+          <Property Name="Autor" Type="String" Nullable="false" />
+          <Property Name="Estoque" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="IdItem" />
+          </Key>
+          <Property Name="IdItem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Livro" Relationship="LivrariaModel.LivroItem" FromRole="Item" ToRole="Livro" />
+          <Property Name="IdLivro" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Pedido" Relationship="LivrariaModel.ItemPedido" FromRole="Item" ToRole="Pedido" />
+          <Property Name="IdPedido" Type="Int32" Nullable="false" />
+          <Property Name="Quantidade" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pedido">
+          <Key>
+            <PropertyRef Name="IdPedido" />
+          </Key>
+          <Property Name="IdPedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Item" Relationship="LivrariaModel.ItemPedido" FromRole="Pedido" ToRole="Item" />
+          <NavigationProperty Name="Cliente" Relationship="LivrariaModel.PedidoCliente" FromRole="Pedido" ToRole="Cliente" />
+          <Property Name="IdCliente" Type="Int32" Nullable="false" />
+          <Property Name="DataPedido" Type="DateTime" Nullable="false" />
+          <Property Name="ValorPedido" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Pedido" Relationship="LivrariaModel.PedidoCliente" FromRole="Cliente" ToRole="Pedido" />
+          <Property Name="NomeCliente" Type="String" Nullable="false" />
+          <Property Name="TelefoneCliente" Type="String" Nullable="false" />
+          <Property Name="CPF" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="EditoraLivro">
+          <End Type="LivrariaModel.Editora" Role="Editora" Multiplicity="1" />
+          <End Type="LivrariaModel.Livro" Role="Livro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Editora">
+              <PropertyRef Name="IdEditora" />
+            </Principal>
+            <Dependent Role="Livro">
+              <PropertyRef Name="IdEditora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LivroItem">
+          <End Type="LivrariaModel.Livro" Role="Livro" Multiplicity="1" />
+          <End Type="LivrariaModel.Item" Role="Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Livro">
+              <PropertyRef Name="IdLivro" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="IdLivro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ItemPedido">
+          <End Type="LivrariaModel.Item" Role="Item" Multiplicity="*" />
+          <End Type="LivrariaModel.Pedido" Role="Pedido" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Pedido">
+              <PropertyRef Name="IdPedido" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="IdPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PedidoCliente">
+          <End Type="LivrariaModel.Pedido" Role="Pedido" Multiplicity="*" />
+          <End Type="LivrariaModel.Cliente" Role="Cliente" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LivrariaModelStoreContainer" CdmEntityContainer="LivrariaModelContainer">
+    <EntitySetMapping Name="Editora">
+      <EntityTypeMapping TypeName="IsTypeOf(LivrariaModel.Editora)">
+        <MappingFragment StoreEntitySet="Editora">
+          <ScalarProperty Name="IdEditora" ColumnName="IdEditora" />
+          <ScalarProperty Name="NomeEditora" ColumnName="NomeEditora" />
+          <ScalarProperty Name="TelefoneEditora" ColumnName="TelefoneEditora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Livro">
+      <EntityTypeMapping TypeName="IsTypeOf(LivrariaModel.Livro)">
+        <MappingFragment StoreEntitySet="Livro">
+          <ScalarProperty Name="IdLivro" ColumnName="IdLivro" />
+          <ScalarProperty Name="IdEditora" ColumnName="IdEditora" />
+          <ScalarProperty Name="NomeLivro" ColumnName="NomeLivro" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="Preco" ColumnName="Preco" />
+          <ScalarProperty Name="Edicao" ColumnName="Edicao" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="Estoque" ColumnName="Estoque" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Item">
+      <EntityTypeMapping TypeName="IsTypeOf(LivrariaModel.Item)">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="IdItem" ColumnName="IdItem" />
+          <ScalarProperty Name="IdLivro" ColumnName="IdLivro" />
+          <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedido">
+      <EntityTypeMapping TypeName="IsTypeOf(LivrariaModel.Pedido)">
+        <MappingFragment StoreEntitySet="Pedido">
+          <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="DataPedido" ColumnName="DataPedido" />
+          <ScalarProperty Name="ValorPedido" ColumnName="ValorPedido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="IsTypeOf(LivrariaModel.Cliente)">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="NomeCliente" ColumnName="NomeCliente" />
+          <ScalarProperty Name="TelefoneCliente" ColumnName="TelefoneCliente" />
+          <ScalarProperty Name="CPF" ColumnName="CPF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

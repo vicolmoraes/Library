@@ -1,0 +1,40 @@
+c:\users\aluno\documents\visual studio 2013\Projects\Livraria\Main\bin\Debug\Main.exe.config
+c:\users\aluno\documents\visual studio 2013\Projects\Livraria\Main\bin\Debug\Main.exe
+c:\users\aluno\documents\visual studio 2013\Projects\Livraria\Main\bin\Debug\Main.pdb
+c:\users\aluno\documents\visual studio 2013\Projects\Livraria\Main\bin\Debug\EntityFramework.dll
+c:\users\aluno\documents\visual studio 2013\Projects\Livraria\Main\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\aluno\documents\visual studio 2013\Projects\Livraria\Main\bin\Debug\EntityFramework.xml
+c:\users\aluno\documents\visual studio 2013\Projects\Livraria\Main\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\aluno\documents\visual studio 2013\Projects\Livraria\Main\obj\Debug\Main.csprojResolveAssemblyReference.cache
+c:\users\aluno\documents\visual studio 2013\Projects\Livraria\Main\obj\Debug\Main.Properties.Resources.resources
+c:\users\aluno\documents\visual studio 2013\Projects\Livraria\Main\obj\Debug\Main.csproj.GenerateResource.Cache
+c:\users\aluno\documents\visual studio 2013\Projects\Livraria\Main\obj\Debug\Main.exe
+c:\users\aluno\documents\visual studio 2013\Projects\Livraria\Main\obj\Debug\Main.pdb
+c:\users\aluno\documents\visual studio 2013\Projects\Livraria\Main\obj\Debug\Main.View.CadastroEditora.resources
+c:\users\aluno\documents\visual studio 2013\Projects\Livraria\Main\obj\Debug\Main.View.MainForm.resources
+C:\Users\Note\Documents\Livraria\Main\bin\Debug\Main.exe.config
+C:\Users\Note\Documents\Livraria\Main\bin\Debug\Main.exe
+C:\Users\Note\Documents\Livraria\Main\bin\Debug\Main.pdb
+C:\Users\Note\Documents\Livraria\Main\bin\Debug\EntityFramework.dll
+C:\Users\Note\Documents\Livraria\Main\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Note\Documents\Livraria\Main\bin\Debug\EntityFramework.xml
+C:\Users\Note\Documents\Livraria\Main\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.Properties.Resources.resources
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.View.CadastroCliente.resources
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.View.CadastroLivro.resources
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.View.CadastroEditora.resources
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.View.ConsultaCliente.resources
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.View.ConsultaEditora.resources
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.View.ConsultaLivro.resources
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.View.MainForm.resources
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.View.ManutencaoCliente.resources
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.View.ManutencaoEditora.resources
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.csproj.GenerateResource.Cache
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.exe
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.pdb
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.csprojResolveAssemblyReference.cache
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.View.CadastroPedidoItem.resources
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.View.ManutencaoLivro.resources
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.View.ManutencaoItem.resources
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.View.ManutencaoPedido.resources
+C:\Users\Note\Documents\Livraria\Main\obj\Debug\Main.View.ConsultarPedidoItem.resources

@@ -1,0 +1,595 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{54650265-11F8-45CE-9251-AA1A27BEAB6D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Main</RootNamespace>
+    <AssemblyName>Main</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\ClienteController.cs" />
+    <Compile Include="Controller\EditoraController.cs" />
+    <Compile Include="Controller\ItemController.cs" />
+    <Compile Include="Controller\LivroController.cs" />
+    <Compile Include="Controller\PedidoController.cs" />
+    <Compile Include="livrariaDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet16.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet17.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet17.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet18.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet18.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet191.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet191.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet20.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet20.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet21.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet22.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet22.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet23.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet23.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet24joinview.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet24joinview.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="livrariaDBDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>livrariaDBDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Cliente.cs">
+      <DependentUpon>LivrariaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Editora.cs">
+      <DependentUpon>LivrariaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Item.cs">
+      <DependentUpon>LivrariaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LivrariaModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LivrariaModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LivrariaModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LivrariaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LivrariaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LivrariaModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Livro.cs">
+      <DependentUpon>LivrariaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Pedido.cs">
+      <DependentUpon>LivrariaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Validacao.cs" />
+    <Compile Include="View\CadastroPedidoItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CadastroPedidoItem.Designer.cs">
+      <DependentUpon>CadastroPedidoItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CadastroCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CadastroCliente.Designer.cs">
+      <DependentUpon>CadastroCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConsultaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ConsultaCliente.Designer.cs">
+      <DependentUpon>ConsultaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConsultaEditora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ConsultaEditora.Designer.cs">
+      <DependentUpon>ConsultaEditora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConsultaLivro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ConsultaLivro.Designer.cs">
+      <DependentUpon>ConsultaLivro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConsultarPedidoItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ConsultarPedidoItem.Designer.cs">
+      <DependentUpon>ConsultarPedidoItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManutencaoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ManutencaoCliente.Designer.cs">
+      <DependentUpon>ManutencaoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManutencaoEditora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ManutencaoEditora.Designer.cs">
+      <DependentUpon>ManutencaoEditora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManutencaoItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ManutencaoItem.Designer.cs">
+      <DependentUpon>ManutencaoItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManutencaoLivro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ManutencaoLivro.Designer.cs">
+      <DependentUpon>ManutencaoLivro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManutencaoPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ManutencaoPedido.Designer.cs">
+      <DependentUpon>ManutencaoPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\CadastroLivro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CadastroLivro.Designer.cs">
+      <DependentUpon>CadastroLivro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CadastroEditora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CadastroEditora.Designer.cs">
+      <DependentUpon>CadastroEditora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\CadastroPedidoItem.resx">
+      <DependentUpon>CadastroPedidoItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CadastroCliente.resx">
+      <DependentUpon>CadastroCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CadastroLivro.resx">
+      <DependentUpon>CadastroLivro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CadastroEditora.resx">
+      <DependentUpon>CadastroEditora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ConsultaCliente.resx">
+      <DependentUpon>ConsultaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ConsultaEditora.resx">
+      <DependentUpon>ConsultaEditora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ConsultaLivro.resx">
+      <DependentUpon>ConsultaLivro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ConsultarPedidoItem.resx">
+      <DependentUpon>ConsultarPedidoItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ManutencaoCliente.resx">
+      <DependentUpon>ManutencaoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ManutencaoEditora.resx">
+      <DependentUpon>ManutencaoEditora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ManutencaoItem.resx">
+      <DependentUpon>ManutencaoItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ManutencaoLivro.resx">
+      <DependentUpon>ManutencaoLivro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ManutencaoPedido.resx">
+      <DependentUpon>ManutencaoPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\LivrariaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LivrariaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
+    <None Include="livrariaDBDataSet.xsc">
+      <DependentUpon>livrariaDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet.xss">
+      <DependentUpon>livrariaDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet1.xsc">
+      <DependentUpon>livrariaDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet1.xss">
+      <DependentUpon>livrariaDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet10.xsc">
+      <DependentUpon>livrariaDBDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet10.xss">
+      <DependentUpon>livrariaDBDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet16.xsc">
+      <DependentUpon>livrariaDBDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet16.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet16.xss">
+      <DependentUpon>livrariaDBDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet17.xsc">
+      <DependentUpon>livrariaDBDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet17.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet17.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet17.xss">
+      <DependentUpon>livrariaDBDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet18.xsc">
+      <DependentUpon>livrariaDBDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet18.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet18.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet18.xss">
+      <DependentUpon>livrariaDBDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet191.xsc">
+      <DependentUpon>livrariaDBDataSet191.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet191.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet191.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet191.xss">
+      <DependentUpon>livrariaDBDataSet191.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet2.xsc">
+      <DependentUpon>livrariaDBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet2.xss">
+      <DependentUpon>livrariaDBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet20.xsc">
+      <DependentUpon>livrariaDBDataSet20.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet20.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet20.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet20.xss">
+      <DependentUpon>livrariaDBDataSet20.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet21.xsc">
+      <DependentUpon>livrariaDBDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet21.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet21.xss">
+      <DependentUpon>livrariaDBDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet22.xsc">
+      <DependentUpon>livrariaDBDataSet22.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet22.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet22.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet22.xss">
+      <DependentUpon>livrariaDBDataSet22.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet23.xsc">
+      <DependentUpon>livrariaDBDataSet23.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet23.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet23.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet23.xss">
+      <DependentUpon>livrariaDBDataSet23.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet24joinview.xsc">
+      <DependentUpon>livrariaDBDataSet24joinview.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet24joinview.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet24joinview.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet24joinview.xss">
+      <DependentUpon>livrariaDBDataSet24joinview.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet3.xsc">
+      <DependentUpon>livrariaDBDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet3.xss">
+      <DependentUpon>livrariaDBDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet4.xsc">
+      <DependentUpon>livrariaDBDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet4.xss">
+      <DependentUpon>livrariaDBDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet5.xsc">
+      <DependentUpon>livrariaDBDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet5.xss">
+      <DependentUpon>livrariaDBDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet6.xsc">
+      <DependentUpon>livrariaDBDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet6.xss">
+      <DependentUpon>livrariaDBDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet7.xsc">
+      <DependentUpon>livrariaDBDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet7.xss">
+      <DependentUpon>livrariaDBDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet8.xsc">
+      <DependentUpon>livrariaDBDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet8.xss">
+      <DependentUpon>livrariaDBDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet9.xsc">
+      <DependentUpon>livrariaDBDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="livrariaDBDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>livrariaDBDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="livrariaDBDataSet9.xss">
+      <DependentUpon>livrariaDBDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="Model\LivrariaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LivrariaModel.Context.cs</LastGenOutput>
+      <DependentUpon>LivrariaModel.edmx</DependentUpon>
+    </None>
+    <None Include="Model\LivrariaModel.edmx.diagram">
+      <DependentUpon>LivrariaModel.edmx</DependentUpon>
+    </None>
+    <None Include="Model\LivrariaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LivrariaModel.cs</LastGenOutput>
+      <DependentUpon>LivrariaModel.edmx</DependentUpon>
+    </None>
+    <None Include="View\packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="View\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\LivrariaModel.edmx.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
